@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   imgSrcArray: string[] = [];
   preImageSrcArray: number[] = [];
+  uploadImgSrc: string = ''
   constructor() {
     const imgSources = new ImgSrc();
     this.imgSrcArray = imgSources.imgSrc;
@@ -24,7 +25,8 @@ export class AppComponent {
   onFileChange(event: any): void {
     const file = event.target.files[0];
     if (file) {
-      console.log(file);
+      this.uploadImgSrc = URL.createObjectURL(file)
+      console.log(this.uploadImgSrc);
     }
   }
 }

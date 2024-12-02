@@ -32,7 +32,7 @@
   margin-top: 10vh;
   flex-direction: column;
 }
-.image{
+.image {
   position: relative;
   width: 75%;
   padding: 12.5vh 0;
@@ -49,7 +49,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% + 25vh);
+  height: 100%;
   opacity: 0;
   z-index: 999;
 }
@@ -108,8 +108,19 @@
   font-style: oblique;
 }
 .button1 {
+  position: relative;
   background: #047170;
 }
 .button2 {
   background: #5df07d;
+}
+.upload-container {
+  position: relative;
+  height: 75%;
+  width: 75%;
+}
+.upload-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
