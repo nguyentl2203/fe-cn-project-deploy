@@ -21,4 +21,10 @@ export class AppComponent {
     console.log(this.preImageSrcArray);
     console.log(this.imgSrcArray);
   }
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      console.log(file);
+    }
+  }
 }
