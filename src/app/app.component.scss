@@ -5,10 +5,39 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container {
-  max-width: 50%;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 45rem;
+  height: 90vh;
   padding: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+}
+.card {
   background: white;
+  width: 50%;
+  height: 50vh;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-container {
+  position: relative;
+  transform: rotate(90deg) scale(.8) translateX(10vh);
+}
+.image-add {
+  position: absolute;
+  transform: scale(0.3);
+}
+.image-arrow {
+  position: absolute;
+  transform: rotate(190deg) translateY(10vh);
 }
