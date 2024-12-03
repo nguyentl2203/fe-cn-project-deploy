@@ -114,6 +114,13 @@
 .button2 {
   background: #5df07d;
 }
+.button3 {
+  position: relative;
+  background: #faf200;
+}
+.button4 {
+  background: #e52121;
+}
 .upload-container {
   position: relative;
   height: 75%;
@@ -122,5 +129,6 @@
 .upload-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 10px;
 }

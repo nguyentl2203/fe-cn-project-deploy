@@ -19,14 +19,11 @@ export class AppComponent {
     this.preImageSrcArray = this.imgSrcArray
       .slice(2, this.preImageSrcArray.length - 1)
       .map((_, i) => i + 3);
-    console.log(this.preImageSrcArray);
-    console.log(this.imgSrcArray);
   }
   onFileChange(event: any): void {
     const file = event.target.files[0];
     if (file) {
       this.uploadImgSrc = URL.createObjectURL(file)
-      console.log(this.uploadImgSrc);
     }
   }
 }
