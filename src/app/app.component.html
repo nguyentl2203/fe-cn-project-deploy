@@ -86,5 +86,12 @@
         }
       </div>
     </div>
+    @if(uploadImgSrc !== '') {
+      <div class="search-container">
+        <button type="button" class="search-button" (click)="getImageInfo()">
+          <img [ngSrc]="imgSrcArray[9]" alt="" width="100" height="100" class="search-image">
+        </button>
+      </div>
+    }
   </div>
 </div>
