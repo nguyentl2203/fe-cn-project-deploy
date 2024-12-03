@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { timer } from 'rxjs';
 import axios from 'axios'
 
 @Injectable({
@@ -7,15 +7,22 @@ import axios from 'axios'
 })
 export class ApiFetchingService {
   private readonly url = 'http://localhost:3001/';
-  GIIIsLoading: boolean = false;
   constructor() {}
   async getImageInfo(data: any) {
-    this.GIIIsLoading = true;
     const payload = {
       images: [data]
     }
-    const res = await axios.post(this.url, payload);
-    this.GIIIsLoading = false;
-    return res
+    // const res = await axios.post(this.url, payload);
+    // return res.data
+    return new Promise<any>((resolve) => {
+      timer(3000).subscribe(() => {
+        const fakeResponse = {
+          success: true,
+          message: 'Fake image info returned',
+          data: payload,
+        };
+        resolve(fakeResponse);
+      });
+    });
   }
 }

@@ -1,6 +1,6 @@
 <div class="background">
   <div class="container">
-    <div class="card">
+    <div class="card {{ hasGetImageInfo ? 'small-card' : '' }}">
       @if(uploadImgSrc === '') {
       <div class="image">
         <input
@@ -56,11 +56,12 @@
           (change)="onFileChange($event)"
           placeholder="_"
           class="image_input"
+          [disabled]="hasGetImageInfo"
         />
         <img [src]="uploadImgSrc" alt="" class="upload-image" />
       </div>
       }
-      <div class="button-container">
+      <div class="button-container {{ hasGetImageInfo ? 'hidden' : '' }}">
         @if(uploadImgSrc === '') {
         <button type="button" class="button button1">
           Upload Image
@@ -82,16 +83,41 @@
             class="image_input"
           />
         </button>
-        <button type="button" class="button button4" (click)="uploadImgSrc = ''">Remove Image</button>
+        <button
+          type="button"
+          class="button button4"
+          (click)="uploadImgSrc = ''"
+        >
+          Remove Image
+        </button>
         }
       </div>
     </div>
     @if(uploadImgSrc !== '') {
-      <div class="search-container">
-        <button type="button" class="search-button" (click)="getImageInfo()">
-          <img [ngSrc]="imgSrcArray[9]" alt="" width="100" height="100" class="search-image">
-        </button>
-      </div>
+    <div class="search-container {{ hasGetImageInfo ? 'hidden' : '' }}">
+      <button type="button" class="search-button" (click)="getImageInfo()">
+        <img
+          [ngSrc]="imgSrcArray[9]"
+          alt=""
+          width="100"
+          height="100"
+          class="search-image"
+        />
+      </button>
+    </div>
     }
+    <div class="result-container {{ hasGetImageInfo ? '' : 'hidden' }}">
+      <div class="result-box">
+        <img
+          [ngSrc]="imgSrcArray[10]"
+          alt=""
+          width="100"
+          height="100"
+          class="logo {{isLoading ? 'logo-animated' : ''}}"
+        />
+        <div class="top-text">123512345613dwwwwwwwwwwwwwww</div>
+        <div class="bottom-text">6134613461346</div>
+      </div>
+    </div>
   </div>
 </div>

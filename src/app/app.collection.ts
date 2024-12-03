@@ -9,7 +9,8 @@ export class ImgSrc {
     '../../OIP (2).jpg',
     '../../OIP (3).jpg',
     '../../th (1).jpg',
-    '../../search-alt-2-svgrepo-com.svg'
+    '../../search-alt-2-svgrepo-com.svg',
+    '../../circle-dashed-svgrepo-com.svg'
   ];
   fetchingData = {
     access_token: 'pjAsuQBFFQ2SAm1',
