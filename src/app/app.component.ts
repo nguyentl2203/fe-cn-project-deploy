@@ -13,9 +13,9 @@ import { ApiFetchingService } from './app.service';
 export class AppComponent {
   imgSrcArray: string[] = [];
   preImageSrcArray: number[] = [];
-  uploadImgSrc: string = '';
+  uploadImgSrc: string = ' ';
   uploadImgSrcBase64: string = '';
-  hasGetImageInfo: boolean = false;
+  hasGetImageInfo: boolean = true;
   isLoading: boolean = false;
   constructor(private apiService: ApiFetchingService) {
     const imgSources = new Collection();
