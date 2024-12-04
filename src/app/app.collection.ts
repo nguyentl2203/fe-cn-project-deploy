@@ -12,6 +12,7 @@ export class ImgSrc {
     '../../search-alt-2-svgrepo-com.svg',
     '../../circle-dashed-svgrepo-com.svg'
   ];
+  emynameiscac = true
   fetchingData = {
     access_token: "CiYVu5slzDaGGAO",
     model_version: "insect_id:2.0.0",
