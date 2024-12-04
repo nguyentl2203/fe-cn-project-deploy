@@ -11,6 +11,7 @@ export class ImgSrc {
     '../../th (1).jpg',
     '../../search-alt-2-svgrepo-com.svg',
     '../../circle-dashed-svgrepo-com.svg',
+    '../'
   ];
   fetchingData = {
     access_token: "CiYVu5slzDaGGAO",
