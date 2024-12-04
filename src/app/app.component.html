@@ -106,22 +106,5 @@
       </button>
     </div>
     }
-    <div class="result-container {{ hasGetImageInfo ? '' : 'hidden' }}">
-      <div class="result-box">
-        <img
-          [ngSrc]="imgSrcArray[10]"
-          alt=""
-          width="100"
-          height="100"
-          class="logo {{ isLoading ? 'logo-animated' : '' }}"
-        />
-        <div class="top-text" id="response-container"></div>
-        <div class="bottom-text">
-          @for(data of fetchingData; track i; let i = $index) {
-            <div class="">{{data.name}} </div>
-          }
-        </div>
-      </div>
     </div>
   </div>
-</div>
