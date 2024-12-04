@@ -141,10 +141,73 @@
     (click)="isPopupOpen = false"
   >
     <div class="popup-box">
-      <div class="">{{imageInfo.name}} </div>
-      <div class="">{{"https://en.wikipedia.org/wiki/" + imageInfo.name}}</div>
+      <div class="">{{ imageInfo.data?.details.name || "" }}</div>
+      <div class="">{{ imageInfo.url || "" }}</div>
       <div class="break-line"></div>
-      <img [ngSrc]="imageInfo" alt="">
+      <img [ngSrc]="imageInfo.image || ''" alt="" width="100" height="100" />
+      <div class="break-line"></div>
+      <div class="">
+        Common Names:
+        <br />
+        @for(name of imageInfo.data?.details.common_names; track i; let i =
+        $index) {
+        <div>{{ name }}</div>
+        }
+      </div>
+      <div class="break-line"></div>
+      <div class="">
+        Description: <br />
+        {{ imageInfo.description || "" }} <br />
+        Source: {{ imageInfo.url || "" }}
+      </div>
+      <div class="break-line"></div>
+      <div class="">
+        Taxonomy:
+        <br />
+        @for(key of objectKeys(imageInfo.data?.details.taxonomy).reverse();
+        track i; let i = $index) {
+        <div>{{ key }}: {{ imageInfo.data?.details.taxonomy[key] }}</div>
+        }
+      </div>
+      <div class="break-line"></div>
+      <div class="">
+        Life Cycle:
+        <br />
+        @for(time of imageInfo.data?.details.life_cycle; track i; let i =
+        $index) {
+        <div>{{ time.stage }}: {{ time.appearance }}</div>
+        }
+      </div>
+      <div class="break-line"></div>
+      <div class="">
+        Host Plants:
+        <br />
+        @for(name of imageInfo.data?.details.host_plants; track i; let i =
+        $index) {
+        <div>{{ name }}</div>
+        }
+      </div>
+      <div class="break-line"></div>
+      <div class="">
+        Range:
+        <br />
+        {{ imageInfo.data?.details.range }}
+      </div>
+      <div class="break-line"></div>
+      <div class="">
+        Harm to agriculture:
+        <br />
+        {{ imageInfo.data?.details.harm_to_agriculture }}
+      </div>
+      <div class="break-line"></div>
+      <div class="">
+        Effective control methods:
+        <br />
+        @for(type of imageInfo.data?.details.effective_control_methods; track i;
+        let i = $index) {
+        <div>{{ type.method }}: {{ type.description }}</div>
+        }
+      </div>
     </div>
   </div>
 </div>

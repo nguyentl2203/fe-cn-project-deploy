@@ -21,7 +21,7 @@ export class AppComponent {
   fetchingData: Array<any> = [];
   isPopupOpen: boolean = false;
   preI: number = -1;
-  imageInfo: any = {}
+  imageInfo: any = {};
   constructor(private apiService: ApiFetchingService) {
     const imgSources = new Collection();
     this.imgSrcArray = imgSources.imgSrc;
@@ -49,21 +49,16 @@ export class AppComponent {
     this.fetchingData = res.message.result.classification.suggestions;
     this.isLoading1 = false;
   }
-  // async getDetailInfo(index: number) {
-  //   this.isLoading = true;
-  //   const resGemini = await this.apiService.getDetailInfo(
-  //     this.res.message.result.classification.suggestions[index]
-  //   );
-  //   console.log(resGemini);
-  //   this.isLoading = false;
-  // }
   async getImageDetailInfo(i: number) {
-    if ((this.preI === i)) return;
+    if (this.preI === i) return;
     this.isLoading2 = true;
     const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
-    this.imageInfo = res.message.details
-    console.log(this.imageInfo);
+    this.imageInfo = res.message;
     this.preI = i;
     this.isLoading2 = false;
+  }
+  objectKeys(obj: any): string[] {
+    if (obj === null || typeof obj !== 'object') return [];
+    return Object.keys(obj);
   }
 }

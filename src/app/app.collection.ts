@@ -163,18 +163,13 @@ export class Collection {
   fetchingDataDetails = {
     data: {
       details: {
-        name: 'Papilio machaon',
-        common_names: [
-          'swallowtail',
-          'Old World Swallowtail',
-          'Common Swallowtail',
-          'Common Yellow Swallowtail',
-        ],
+        name: 'Cerura vinula',
+        common_names: ['Puss Moth'],
         taxonomy: {
           class: 'Insecta',
-          genus: 'Papilio',
+          genus: 'Cerura',
           order: 'Lepidoptera',
-          family: 'Papilionidae',
+          family: 'Notodontidae',
           phylum: 'Arthropoda',
           kingdom: 'Animalia',
         },
@@ -182,66 +177,61 @@ export class Collection {
           {
             stage: 'Egg',
             appearance:
-              'Pale yellow or greenish, spherical and ribbed eggs laid singly on host plant leaves.',
+              'Small, round, and pale green, laid in batches on leaves of host plants.',
           },
           {
             stage: 'Larva (Caterpillar)',
             appearance:
-              'Initially dark, later developing bright green, black, and orange markings.  May have a segmented appearance.',
+              "Distinctive appearance with a large, green body, two prominent 'horns' on the thorax, and a tail-like appendage.  Can change color slightly depending on the environment.",
           },
           {
-            stage: 'Pupa (Chrysalis)',
+            stage: 'Pupa',
             appearance:
-              'Typically brown or mottled green, depending on environment and substrate.  Can be found attached to stems or branches.',
+              'Brownish-gray pupa formed in a loose cocoon within leaf litter or crevices.',
           },
           {
-            stage: 'Adult (Butterfly)',
+            stage: 'Adult (Moth)',
             appearance:
-              'Yellow wings with black veins and borders.  Has distinctive black and blue markings near the hindwing edges.',
+              'Brownish-gray forewings and lighter hindwings.  The adults have a wingspan of around 5-7 cm.',
           },
         ],
-        host_plants: [
-          'Carrot (Daucus carota)',
-          'Fennel (Foeniculum vulgare)',
-          'Parsnip (Pastinaca sativa)',
-          'Dill (Anethum graveolens)',
-          'Rue (Ruta graveolens)',
-        ],
-        range:
-          'Extensive Palearctic distribution across Europe, Asia, and North Africa.',
+        host_plants: ['Poplar (Populus spp.)', 'Willow (Salix spp.)'],
+        range: 'Europe and parts of Asia.',
         harm_to_agriculture:
-          'Larvae can cause damage to commercially grown crops like carrots, parsley, and dill, especially in high densities. Damage is primarily from defoliation.',
+          'The puss moth caterpillar can defoliate poplar and willow trees, particularly younger ones.  Heavy infestations can lead to growth reduction and damage to commercially grown trees.',
         effective_control_methods: [
-          {
-            method: 'Handpicking',
-            description:
-              'Manually removing caterpillars from plants, particularly effective in small gardens or localized infestations.',
-          },
           {
             method: 'Biological Control',
             description:
-              'Utilizing natural predators such as parasitic wasps or flies to control caterpillar populations. This is a sustainable approach, reducing the need for chemical insecticides.',
+              'Natural predators such as birds, parasitic wasps, and other insects can help keep populations in check.',
           },
           {
-            method: 'Insecticidal Soap',
+            method: 'Handpicking',
             description:
-              'Applying insecticidal soap sprays, particularly effective against younger larvae. This is relatively low-impact and biodegradable.',
+              'Manually removing caterpillars from affected trees, particularly effective in small-scale infestations or for young trees.',
           },
           {
-            method: 'Row Covers',
+            method: 'Bacillus thuringiensis (Bt)',
             description:
-              'Protecting crops with row covers can prevent egg-laying and larval feeding, providing a barrier to the insects.',
+              'Application of a Bt-based insecticide can be effective against puss moth caterpillars.  Always follow label instructions carefully.',
+          },
+          {
+            method: 'Insecticides',
+            description:
+              'Chemical insecticides can also control puss moth larvae, but should be used judiciously due to potential effects on non-target species.',
           },
         ],
       },
     },
-    url: 'https://en.wikipedia.org/wiki/Papilio_machaon',
-    image: {
-      value:
-        'https://insect-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/2fa/2fa22c7771055c1d725c7da4a1633c4923f513c6.jpg',
-      citation: '//commons.wikimedia.org/wiki/User:Entomolo',
-      license_name: 'CC BY-SA 4.0',
-      license_url: 'https://creativecommons.org/licenses/by-sa/4.0/',
-    },
+    description:
+      'Pareronia is a genus of butterflies of the subfamily Pierinae within the family Pieridae. The species are found in Southeast Asia and are mimics of the Danainae genus Parantica.',
+    url: 'https://en.wikipedia.org/wiki/Cerura_vinula',
+    image:
+      'https://insect-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/726/726d30aa45f62c6e3fd1982e41fccb25261ebf04.jpg',
+    images: [
+      'https://insect-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/inaturalist/32c/32c3ad42666bc41a648674f2a64da815e6b88dcb.jpg',
+      'https://insect-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/inaturalist/2d6/2d6d6af2e53f2840cd8b212d7738683017f1626e.jpg',
+      'https://insect-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/inaturalist/2af/2af420c6b6d19d90e70a1e1ef2afc9f7bfc4d99f.jpg',
+    ],
   };
 }
