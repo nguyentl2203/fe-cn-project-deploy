@@ -13,9 +13,9 @@ import { ApiFetchingService } from './app.service';
 export class AppComponent {
   imgSrcArray: string[] = [];
   preImageSrcArray: number[] = [];
-  uploadImgSrc: string = '';
+  uploadImgSrc: string = ' ';
   uploadImgSrcBase64: string = '';
-  hasGetImageInfo: boolean = false;
+  hasGetImageInfo: boolean = true;
   isLoading: boolean = false;
   fetchingData: Array<any> = [];
   res: any = {};
@@ -23,6 +23,8 @@ export class AppComponent {
     const imgSources = new Collection();
     this.imgSrcArray = imgSources.imgSrc;
     this.preImageSrcArray = this.imgSrcArray.slice(2, 8).map((_, i) => i + 3);
+    this.fetchingData =
+      imgSources.fetchingData.result.classification.suggestions;
   }
   onFileChange(event: any): void {
     const file = event.target.files[0];
@@ -43,15 +45,14 @@ export class AppComponent {
     const res = await this.apiService.getImageInfo(this.uploadImgSrcBase64);
     this.fetchingData = res.message.result.classification.suggestions;
     this.res = await this.apiService.getImageInfo(this.uploadImgSrcBase64);
-    // const Gemini= await this.apiService.getDetailInfo(res.message.result.classification.suggestions[0])
-    console.log(this.res);
-
     this.isLoading = false;
   }
-  async getDetailInfo(index: number){
+  async getDetailInfo(index: number) {
     this.isLoading = true;
-    const resGemini = await this.apiService.getDetailInfo(this.res.message.result.classification.suggestions[index])
-    console.log(resGemini)
+    const resGemini = await this.apiService.getDetailInfo(
+      this.res.message.result.classification.suggestions[index]
+    );
+    console.log(resGemini);
     this.isLoading = false;
   }
 }

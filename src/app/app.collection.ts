@@ -11,6 +11,7 @@ export class Collection {
     '../../th (1).jpg',
     '../../search-alt-2-svgrepo-com.svg',
     '../../circle-dashed-svgrepo-com.svg',
+    '../../circle-information-svgrepo-com.svg'
   ];
   fetchingData = {
     access_token: "CiYVu5slzDaGGAO",
@@ -126,22 +127,22 @@ export class Collection {
                     probability: 0.0215,
                     similar_images: [
                         {
-                            "id": "4d793ecdb37ea66988725f6f00b9954df9a40e71",
-                            "url": "https://insect-id.ams3.cdn.digitaloceanspaces.com/similar_images/2/4d7/93ecdb37ea66988725f6f00b9954df9a40e71.jpg",
-                            "license_name": "CC BY 4.0",
-                            "license_url": "https://creativecommons.org/licenses/by/4.0/",
-                            "citation": "Justin Paulin",
-                            "similarity": 0.654,
-                            "url_small": "https://insect-id.ams3.cdn.digitaloceanspaces.com/similar_images/2/4d7/93ecdb37ea66988725f6f00b9954df9a40e71.small.jpg"
+                            id: "4d793ecdb37ea66988725f6f00b9954df9a40e71",
+                            url: "https://insect-id.ams3.cdn.digitaloceanspaces.com/similar_images/2/4d7/93ecdb37ea66988725f6f00b9954df9a40e71.jpg",
+                            license_name: "CC BY 4.0",
+                            license_url: "https://creativecommons.org/licenses/by/4.0/",
+                            citation: "Justin Paulin",
+                            similarity: 0.654,
+                            url_small: "https://insect-id.ams3.cdn.digitaloceanspaces.com/similar_images/2/4d7/93ecdb37ea66988725f6f00b9954df9a40e71.small.jpg"
                         },
                         {
-                            "id": "6f47c517f48a013bd18c00bcafdb0f34af204f92",
-                            "url": "https://insect-id.ams3.cdn.digitaloceanspaces.com/similar_images/2/6f4/7c517f48a013bd18c00bcafdb0f34af204f92.jpeg",
-                            "license_name": "CC BY 4.0",
-                            "license_url": "https://creativecommons.org/licenses/by/4.0/",
-                            "citation": "Millie Basden",
-                            "similarity": 0.307,
-                            "url_small": "https://insect-id.ams3.cdn.digitaloceanspaces.com/similar_images/2/6f4/7c517f48a013bd18c00bcafdb0f34af204f92.small.jpeg"
+                            id: "6f47c517f48a013bd18c00bcafdb0f34af204f92",
+                            url: "https://insect-id.ams3.cdn.digitaloceanspaces.com/similar_images/2/6f4/7c517f48a013bd18c00bcafdb0f34af204f92.jpeg",
+                            license_name: "CC BY 4.0",
+                            license_url: "https://creativecommons.org/licenses/by/4.0/",
+                            citation: "Millie Basden",
+                            similarity: 0.307,
+                            url_small: "https://insect-id.ams3.cdn.digitaloceanspaces.com/similar_images/2/6f4/7c517f48a013bd18c00bcafdb0f34af204f92.small.jpeg"
                         }
                     ],
                     details: {
