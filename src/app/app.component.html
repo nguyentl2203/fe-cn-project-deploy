@@ -115,12 +115,12 @@
           height="100"
           class="logo {{ isLoading ? 'logo-animated' : '' }}"
         />
-        <div class="top-text">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-            starterData
-          }}
+        <div class="top-text" id="response-container"></div>
+        <div class="bottom-text">
+          @for(data of fetchingData; track i; let i = $index) {
+            <div class="">{{data.name}} </div>
+          }
         </div>
-        <div class="bottom-text"></div>
       </div>
     </div>
   </div>
