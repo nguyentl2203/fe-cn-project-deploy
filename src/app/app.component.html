@@ -106,6 +106,15 @@
       </button>
     </div>
     }
-    <div class="result-container {{ hasGetImageInfo? '' : 'hidden' }}">123</div>
+    <div class="result-container {{ hasGetImageInfo ? '' : 'hidden' }}">
+      <button type="button">Change language</button>
+      <div class="break-line"></div>
+      @for(data of fetchingData; track i; let i = $index) {
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+      }
     </div>
   </div>
+</div>

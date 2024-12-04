@@ -17,6 +17,7 @@ export class AppComponent {
   uploadImgSrcBase64: string = '';
   hasGetImageInfo: boolean = true;
   isLoading: boolean = false;
+  fetchingData: Array<any> = [];
   constructor(private apiService: ApiFetchingService) {
     const imgSources = new Collection();
     this.imgSrcArray = imgSources.imgSrc;
@@ -39,10 +40,7 @@ export class AppComponent {
     this.hasGetImageInfo = true;
     this.isLoading = true;
     const res = await this.apiService.getImageInfo(this.uploadImgSrcBase64);
-    const Gemini= await this.apiService.getDetailInfo(res.message.result.classification.suggestions[0])
-    console.log(res);
-    console.log(Gemini);
+    this.fetchingData = res.message.result.classification.suggestions;
     this.isLoading = false;
   }
-
 }
