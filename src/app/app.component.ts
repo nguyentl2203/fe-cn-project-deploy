@@ -39,7 +39,9 @@ export class AppComponent {
     this.hasGetImageInfo = true;
     this.isLoading = true;
     const res = await this.apiService.getImageInfo(this.uploadImgSrcBase64);
+    const Gemini= await this.apiService.getDetailInfo(res.message.result.classification.suggestions[0])
     console.log(res);
+    console.log(Gemini);
     this.isLoading = false;
   }
 
