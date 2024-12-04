@@ -1,4 +1,4 @@
-import { ImgSrc } from './app.collection';
+import { Collection } from './app.collection';
 import { NgOptimizedImage, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { ApiFetchingService } from './app.service';
@@ -15,11 +15,10 @@ export class AppComponent {
   preImageSrcArray: number[] = [];
   uploadImgSrc: string = '';
   uploadImgSrcBase64: string = '';
-  fetchingData: any[] = [];
   hasGetImageInfo: boolean = false;
   isLoading: boolean = false;
   constructor(private apiService: ApiFetchingService) {
-    const imgSources = new ImgSrc();
+    const imgSources = new Collection();
     this.imgSrcArray = imgSources.imgSrc;
     this.preImageSrcArray = this.imgSrcArray.slice(2, 8).map((_, i) => i + 3);
   }
@@ -40,6 +39,7 @@ export class AppComponent {
     this.hasGetImageInfo = true;
     this.isLoading = true;
     const res = await this.apiService.getImageInfo(this.uploadImgSrcBase64);
+    console.log(res);
     this.isLoading = false;
   }
 
