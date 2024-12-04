@@ -1,4 +1,5 @@
 .background {
+  position: relative;
   height: 100vh;
   width: 100%;
   background-image: url("/Background_Image.webp");
@@ -188,3 +189,32 @@
   background: black;
   margin: 10px 0;
 }
+.popup-container {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+}
+.popup-box {
+  width: 50%;
+  min-height: 75vh;
+  max-height: 80vh;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+

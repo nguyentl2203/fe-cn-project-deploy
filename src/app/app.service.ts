@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { timer } from 'rxjs';
-import axios from 'axios'
+import axios from 'axios';
 import { Collection } from './app.collection';
 import { compileNgModule } from '@angular/compiler';
 
@@ -16,7 +16,7 @@ export class ApiFetchingService {
     // }
     // const res = await axios.post(this.url, payload);
     // return res.data
-    const fakeRes = new Collection()
+    const fakeRes = new Collection();
     return new Promise<any>((resolve) => {
       timer(3000).subscribe(() => {
         const fakeResponse = {
@@ -27,7 +27,7 @@ export class ApiFetchingService {
       });
     });
   }
-  async getDetailInfo(data: any){
+  async getDetailInfo(data: any) {
     // const payload ={
     //   suggestion:{
     //     ...data
@@ -35,16 +35,15 @@ export class ApiFetchingService {
     // };
     // const res = await axios.post(`${this.url}details`, payload);
     // return res.data;
-    const fakeRes = new Collection()
-    return new Promise<any>((resolve)=>{
-        timer(3000).subscribe(()=>{
-          const fakeGemini = {
-            success:true,
-            message: fakeRes.fetchingDataDetails,
-          };
-          resolve(fakeGemini)
-        })
-    }
-    )
+    const fakeRes = new Collection();
+    return new Promise<any>((resolve) => {
+      timer(3000).subscribe(() => {
+        const fakeGemini = {
+          success: true,
+          message: fakeRes.fetchingDataDetails,
+        };
+        resolve(fakeGemini);
+      });
+    });
   }
 }

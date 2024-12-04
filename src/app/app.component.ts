@@ -13,12 +13,15 @@ import { ApiFetchingService } from './app.service';
 export class AppComponent {
   imgSrcArray: string[] = [];
   preImageSrcArray: number[] = [];
-  uploadImgSrc: string = ' ';
+  uploadImgSrc: string = '';
   uploadImgSrcBase64: string = '';
-  hasGetImageInfo: boolean = true;
-  isLoading: boolean = false;
+  hasGetImageInfo: boolean = false;
+  isLoading1: boolean = false;
+  isLoading2: boolean = false;
   fetchingData: Array<any> = [];
-  res: any = {};
+  isPopupOpen: boolean = false;
+  preI: number = -1;
+  imageInfo: any = {}
   constructor(private apiService: ApiFetchingService) {
     const imgSources = new Collection();
     this.imgSrcArray = imgSources.imgSrc;
@@ -41,18 +44,26 @@ export class AppComponent {
 
   async getImageInfo() {
     this.hasGetImageInfo = true;
-    this.isLoading = true;
+    this.isLoading1 = true;
     const res = await this.apiService.getImageInfo(this.uploadImgSrcBase64);
     this.fetchingData = res.message.result.classification.suggestions;
-    this.res = await this.apiService.getImageInfo(this.uploadImgSrcBase64);
-    this.isLoading = false;
+    this.isLoading1 = false;
   }
-  async getDetailInfo(index: number) {
-    this.isLoading = true;
-    const resGemini = await this.apiService.getDetailInfo(
-      this.res.message.result.classification.suggestions[index]
-    );
-    console.log(resGemini);
-    this.isLoading = false;
+  // async getDetailInfo(index: number) {
+  //   this.isLoading = true;
+  //   const resGemini = await this.apiService.getDetailInfo(
+  //     this.res.message.result.classification.suggestions[index]
+  //   );
+  //   console.log(resGemini);
+  //   this.isLoading = false;
+  // }
+  async getImageDetailInfo(i: number) {
+    if ((this.preI === i)) return;
+    this.isLoading2 = true;
+    const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
+    this.imageInfo = res.message.details
+    console.log(this.imageInfo);
+    this.preI = i;
+    this.isLoading2 = false;
   }
 }

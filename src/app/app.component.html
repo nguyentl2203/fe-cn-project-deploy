@@ -127,13 +127,24 @@
         <div class="">
           <div class="">{{ data.name }}</div>
           <div class="">{{ data.details.common_names[0] }},...</div>
-          <div class="">
-            <img [ngSrc]="imgSrcArray[11]" alt="" width="100" height="100">
+          <div class="" (click)="isPopupOpen = true; getImageDetailInfo(i)">
+            <img [ngSrc]="imgSrcArray[11]" alt="" width="100" height="100" />
             <div class="">Details</div>
-            </div>
+          </div>
         </div>
       </div>
       }
+    </div>
+  </div>
+  <div
+    class="{{ isPopupOpen ? 'popup-container' : 'hidden' }}"
+    (click)="isPopupOpen = false"
+  >
+    <div class="popup-box">
+      <div class="">{{imageInfo.name}} </div>
+      <div class="">{{"https://en.wikipedia.org/wiki/" + imageInfo.name}}</div>
+      <div class="break-line"></div>
+      <img [ngSrc]="imageInfo" alt="">
     </div>
   </div>
 </div>
