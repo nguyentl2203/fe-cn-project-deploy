@@ -8,14 +8,14 @@ import { compileNgModule } from '@angular/compiler';
   providedIn: 'root',
 })
 export class ApiFetchingService {
-  private readonly url = 'http://localhost:3001/';
+  private readonly url = 'http://localhost:10000/';
   constructor() {}
   async getImageInfo(data: any) {
-    // const payload = {
-    //   images: [data]
-    // }
-    // const res = await axios.post(this.url, payload);
-    // return res.data
+    const payload = {
+      images: [data]
+    }
+    const res = await axios.post(this.url, payload);
+    return res.data
     const fakeRes = new Collection();
     return new Promise<any>((resolve) => {
       timer(3000).subscribe(() => {
@@ -28,13 +28,13 @@ export class ApiFetchingService {
     });
   }
   async getDetailInfo(data: any) {
-    // const payload ={
-    //   suggestion:{
-    //     ...data
-    //   }
-    // };
-    // const res = await axios.post(`${this.url}details`, payload);
-    // return res.data;
+    const payload ={
+      suggestion:{
+        ...data
+      }
+    };
+    const res = await axios.post(`${this.url}details`, payload);
+    return res.data;
     const fakeRes = new Collection();
     return new Promise<any>((resolve) => {
       timer(3000).subscribe(() => {

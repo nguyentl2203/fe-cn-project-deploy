@@ -14,9 +14,9 @@ import { FirstLetterUppercasePipe } from './app.pipe';
 export class AppComponent {
   imgSrcArray: string[] = [];
   preImageSrcArray: number[] = [];
-  uploadImgSrc: string = ' ';
+  uploadImgSrc: string = '';
   uploadImgSrcBase64: string = '';
-  hasGetImageInfo: boolean = true;
+  hasGetImageInfo: boolean = false;
   isLoading1: boolean = false;
   isLoading2: boolean = false;
   fetchingData: Array<any> = [];
@@ -47,17 +47,17 @@ export class AppComponent {
     this.hasGetImageInfo = true;
     this.isLoading1 = true;
     const res = await this.apiService.getImageInfo(this.uploadImgSrcBase64);
-    this.fetchingData = res.message.result.classification.suggestions;
+    this.fetchingData = res.result.classification.suggestions;
     this.isLoading1 = false;
   }
   async getImageDetailInfo(i: number) {
     if (this.preI === i) return;
     this.isLoading2 = true;
     const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
-    const keys = Object.keys(res.message.data.details);
-    const outerkeys = Object.keys(res.message).slice(
+    const keys = Object.keys(res.data.details);
+    const outerkeys = Object.keys(res).slice(
       1,
-      Object.keys(res.message).length
+      Object.keys(res).length
     );
     this.keys.push(
       ...[
@@ -71,7 +71,7 @@ export class AppComponent {
       ]
     );
     console.log(this.keys);
-    this.imageInfo = res.message;
+    this.imageInfo = res;
     this.preI = i;
     this.isLoading2 = false;
   }
