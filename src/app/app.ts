@@ -14,9 +14,9 @@ import { FirstLetterUppercasePipe } from './app.pipe';
 export class AppComponent {
   imgSrcArray: string[] = [];
   preImageSrcArray: number[] = [];
-  uploadImgSrc: string = '';
+  uploadImgSrc: string = ' ';
   uploadImgSrcBase64: string = '';
-  hasGetImageInfo: boolean = false;
+  hasGetImageInfo: boolean = true;
   isLoading1: boolean = false;
   isLoading2: boolean = false;
   fetchingData: Array<any> = [];
@@ -28,6 +28,7 @@ export class AppComponent {
     const imgSources = new Collection();
     this.imgSrcArray = imgSources.imgSrc;
     this.preImageSrcArray = this.imgSrcArray.slice(2, 8).map((_, i) => i + 3);
+    this.fetchingData = imgSources.fetchingData.result.classification.suggestions
   }
   onFileChange(event: any): void {
     const file = event.target.files[0];
