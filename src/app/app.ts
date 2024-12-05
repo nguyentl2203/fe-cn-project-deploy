@@ -2,11 +2,12 @@ import { Collection } from './app.collection';
 import { NgOptimizedImage, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { ApiFetchingService } from './app.service';
+import { FirstLetterUppercasePipe } from './app.pipe';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgOptimizedImage, NgStyle],
+  imports: [NgOptimizedImage, NgStyle, FirstLetterUppercasePipe],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
