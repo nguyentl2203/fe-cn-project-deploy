@@ -8,7 +8,7 @@ import { compileNgModule } from '@angular/compiler';
   providedIn: 'root',
 })
 export class ApiFetchingService {
-  private readonly url = 'http://localhost:10000/';
+  private readonly url = 'https://be-cn-project.onrender.com/';
   constructor() {}
   async getImageInfo(data: any) {
     const payload = {
