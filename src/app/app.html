@@ -141,12 +141,12 @@
     (click)="isPopupOpen = false"
   >
     <div class="popup-box">
-      <div class="">{{ imageInfo.data?.details.name || "" }}</div>
+      <!-- <div class="">{{ imageInfo.data?.details.name || "" }}</div>
       <div class="">{{ imageInfo.url || "" }}</div>
       <div class="break-line"></div>
       <img [ngSrc]="imageInfo.image || ''" alt="" width="100" height="100" />
-      <div class="break-line"></div>
-      <div class="">
+      <div class="break-line"></div> -->
+      <!-- <div class="">
         Common Names:
         <br />
         @for(name of imageInfo.data?.details.common_names; track i; let i =
@@ -207,7 +207,51 @@
         let i = $index) {
         <div>{{ type.method }}: {{ type.description }}</div>
         }
+      </div> -->
+      @for(key of keys; track i; let i = $index) {
+      @if (key === 'url' || key ==='description') {
+      <div class="">{{imageInfo[key] || ''}}</div>
+      <div class="break-line"></div>
+      } @else if (key === 'image') {
+      <img [ngSrc]="imageInfo[key] || ''" alt="" width="100" height="100" />
+      <div class="break-line"></div>
+      } @else {
+        @if(isArray(key)) { @for(objectkey of
+      objectKeys(imageInfo.data.details[key]); track i; let i = $index) {
+        <div class="">{{key}} </div>
+      @if(isObject(imageInfo.data.details[key][objectkey])) { @if(key ===
+      'life_cycle') {
+      <div class="">
+        {{ imageInfo.data.details[key][objectkey].stage || '' }}
       </div>
+      <div class="">
+        {{ imageInfo.data.details[key][objectkey].appearance || '' }}
+      </div>
+      } @else {
+      <div class="">
+        {{ imageInfo.data.details[key][objectkey].method || '' }}
+      </div>
+      <div class="">
+        {{ imageInfo.data.details[key][objectkey].description || '' }}
+      </div>
+      } } @else {
+      <div class="">{{ imageInfo.data.details[key][objectkey] || '' }}</div>
+      } }
+      <div class="break-line"></div>
+      } @else if (isString(imageInfo.data.details[key])) {
+
+      <div class="">{{ imageInfo.data.details[key] || '' }}</div>
+      @if(key !== 'name') {
+      <div class="break-line"></div>
+      } }
+      <!-- @else {
+            @for (image of imageInfo[key]; track i; let i = $index) {
+              <img [ngSrc]="image || ''" alt="" width="100" height="100" />
+              <div class="break-line"></div>
+            }
+          } -->
+      } }
+      <!-- ['name', 'url', 'image', 'common_names', 'description', 'taxonomy', 'life_cycle', 'host_plants', 'range', 'harm_to_agriculture', 'effective_control_methods', 'images'] -->
     </div>
   </div>
 </div>

@@ -7,8 +7,8 @@ import { ApiFetchingService } from './app.service';
   selector: 'app-root',
   standalone: true,
   imports: [NgOptimizedImage, NgStyle],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
 export class AppComponent {
   imgSrcArray: string[] = [];
@@ -22,12 +22,11 @@ export class AppComponent {
   isPopupOpen: boolean = false;
   preI: number = -1;
   imageInfo: any = {};
+  keys: string[] = [];
   constructor(private apiService: ApiFetchingService) {
     const imgSources = new Collection();
     this.imgSrcArray = imgSources.imgSrc;
     this.preImageSrcArray = this.imgSrcArray.slice(2, 8).map((_, i) => i + 3);
-    this.fetchingData =
-      imgSources.fetchingData.result.classification.suggestions;
   }
   onFileChange(event: any): void {
     const file = event.target.files[0];
@@ -53,12 +52,41 @@ export class AppComponent {
     if (this.preI === i) return;
     this.isLoading2 = true;
     const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
+    const keys = Object.keys(res.message.data.details);
+    const outerkeys = Object.keys(res.message).slice(
+      1,
+      Object.keys(res.message).length
+    );
+    this.keys.push(
+      ...[
+        keys[0],
+        outerkeys[1],
+        outerkeys[2],
+        keys[1],
+        outerkeys[0],
+        ...keys.slice(2),
+        outerkeys[3],
+      ]
+    );
+    console.log(this.keys);
     this.imageInfo = res.message;
     this.preI = i;
     this.isLoading2 = false;
   }
   objectKeys(obj: any): string[] {
     if (obj === null || typeof obj !== 'object') return [];
+    console.log(Object.keys(obj), 'object keys');
     return Object.keys(obj);
+  }
+  isArray(key: any): boolean {
+    return Array.isArray(this.imageInfo.data.details[key]);
+  }
+
+  isObject(value: any): boolean {
+    return typeof value === 'object' && value !== null && !Array.isArray(value);
+  }
+
+  isString(value: any): boolean {
+    return typeof value === 'string';
   }
 }
