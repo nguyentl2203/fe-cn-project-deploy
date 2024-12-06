@@ -19,6 +19,19 @@
     </div>
   </div>
   <div class="container">
+    <div
+      class="{{hasGetImageInfo ? '' : 'hidden'}} back"
+      (click)="uploadImgSrc = ''; hasGetImageInfo = false"
+    >
+      <img
+        [ngSrc]="imgSrcArray[12]"
+        alt=""
+        width="100"
+        height="100"
+        class="back-image"
+      />
+      Back
+    </div>
     <div class="card {{ hasGetImageInfo ? 'small-card' : '' }}">
       @if(uploadImgSrc === '') {
       <div class="image">
@@ -177,9 +190,23 @@
       class="popup-box"
       (click)="$event.preventDefault(); $event.stopPropagation()"
     >
-      <div class="headers bigger">{{ imageInfo.data?.details.name || "" }}</div>
+      <div class="name-container">
+        <div class="headers bigger">
+          {{ imageInfo.data?.details.name || "" }}
+        </div>
+        <img
+          [ngSrc]="imgSrcArray[13]"
+          alt=""
+          width="100"
+          height="100"
+          class="name-image"
+          (click)="isPopupOpen = false"
+        />
+      </div>
       <a
-        [href]="imageInfo.url || ''"
+        [href]="imageInfo.url || '#'"
+        target="_blank"
+        rel="noopener noreferrer"
         class="popup-url"
         (click)="$event.stopPropagation()"
         >{{imageInfo.url || ''}}</a
@@ -231,6 +258,7 @@
       <div class="headers">
         Life Cycle:
         <br />
+        {{console(imageInfo.data?.details.life_cycle)}}
         @for(time of imageInfo.data?.details.life_cycle; track i; let i =
         $index) {
         <div class="normal">{{ time.stage }}: {{ time.appearance }}</div>
@@ -276,9 +304,19 @@
   (click)="isCameraOpen = false; stopCamera()"
 >
   <div class="video-container">
-    <video #videoElement autoplay class="video" [src]="isCameraLoading ? videoSrcArray[0] : null" (click)="$event.preventDefault(); $event.stopPropagation()"></video>
+    <video
+      #videoElement
+      autoplay
+      class="video"
+      [src]="isCameraLoading ? videoSrcArray[0] : null"
+      (click)="$event.preventDefault(); $event.stopPropagation()"
+    ></video>
     <canvas #canvasElement class="hidden"></canvas>
-    <button type="button" (click)="takePicture();$event.preventDefault(); $event.stopPropagation()" class="video-button">
+    <button
+      type="button"
+      (click)="isCameraLoading ? null : takePicture();$event.preventDefault(); $event.stopPropagation()"
+      class="video-button"
+    >
       Take Picture
     </button>
   </div>

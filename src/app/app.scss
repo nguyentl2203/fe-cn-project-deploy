@@ -65,6 +65,24 @@
   margin: 0 auto;
   padding: 0 2% 1% 2%;
 }
+.back {
+  position: absolute;
+  top: 5vh;
+  left: 3vh;
+  color: #00c04d;
+  background: white;
+  padding: 8px 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.back-image {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
 .card {
   position: relative;
   background: white;
@@ -212,7 +230,7 @@
   background: white;
   width: 100%;
   margin-top: 2%;
-  min-height: 60vh;
+  min-height: 57.5vh;
   padding: 1%;
 }
 .result-button {
@@ -306,6 +324,16 @@
   overflow-x: hidden;
   overflow-y: scroll;
   padding: 2.5%;
+}
+.name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name-image {
+  width: 10%;
+  aspect-ratio: 1;
+  height: auto;
 }
 .nope {
   margin-top: 0;

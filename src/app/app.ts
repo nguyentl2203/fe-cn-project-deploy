@@ -36,9 +36,9 @@ export class AppComponent {
     this.imgSrcArray = collection.imgSrc;
     this.videoSrcArray = collection.videoSrc;
     this.preImageSrcArray = this.imgSrcArray.slice(2, 8).map((_, i) => i + 3);
-    this.fetchingData =
-      collection.fetchingData.result.classification.suggestions;
-    this.imageInfo = collection.fetchingDataDetails;
+    // this.fetchingData =
+    //   collection.fetchingData.result.classification.suggestions;
+    // this.imageInfo = collection.fetchingDataDetails;
   }
   onFileChange(event: any): void {
     const file = event.target.files[0];
@@ -62,9 +62,9 @@ export class AppComponent {
   async getImageDetailInfo(i: number) {
     this.isLoading2 = true;
     const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
-    console.log(res);
     this.imageInfo = res;
-    console.log(this.imageInfo.life_cycle);
+    console.log(this.imageInfo);
+    console.log(this.imageInfo.data.details.life_cycle);
     this.isLoading2 = false;
   }
   objectKeys(obj: any): string[] {
@@ -108,5 +108,9 @@ export class AppComponent {
     }
     this.isCameraOpen = false
     this.stopCamera()
+  }
+
+  console(data: any) {
+    console.log(data);
   }
 }

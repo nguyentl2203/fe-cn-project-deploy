@@ -12,6 +12,8 @@ export class Collection {
     '../../search-alt-2-svgrepo-com.svg',
     '../../circle-dashed-svgrepo-com.svg',
     '../../circle-information-svgrepo-com.svg',
+    '../../arrow-narrow-left-svgrepo-com.svg',
+    '../../cross-svgrepo-com.svg'
   ];
   videoSrc: string[] = [
     '../../Loading Screen Effect.mp4'
