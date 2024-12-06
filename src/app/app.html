@@ -91,7 +91,9 @@
             class="image_input"
           />
         </button>
-        <button type="button" class="button button2" (click)="openCamera()">Take a picture</button>
+        <button type="button" class="button button2" (click)="openCamera()">
+          Take a picture
+        </button>
         } @else {
         <button type="button" class="button button3">
           Change Image
@@ -269,7 +271,15 @@
     </div>
   </div>
 </div>
-<video #videoElement width="100%" height="auto" autoplay></video>
-<canvas #canvasElement style="display:none;"></canvas>
-<button (click)="takePicture()">Take Picture</button>
-<img #imagePreview src="" alt="Captured Image" />
+<div
+  class="{{ isCameraOpen ? 'popup-container' : 'hidden' }}"
+  (click)="isCameraOpen = false; stopCamera()"
+>
+  <div class="video-container">
+    <video #videoElement autoplay class="video" [src]="isCameraLoading ? videoSrcArray[0] : null" (click)="$event.preventDefault(); $event.stopPropagation()"></video>
+    <canvas #canvasElement class="hidden"></canvas>
+    <button type="button" (click)="takePicture();$event.preventDefault(); $event.stopPropagation()" class="video-button">
+      Take Picture
+    </button>
+  </div>
+</div>

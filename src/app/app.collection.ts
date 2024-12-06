@@ -13,6 +13,9 @@ export class Collection {
     '../../circle-dashed-svgrepo-com.svg',
     '../../circle-information-svgrepo-com.svg',
   ];
+  videoSrc: string[] = [
+    '../../Loading Screen Effect.mp4'
+  ]
   fetchingData = {
     access_token: 'iVGCaws5b3BYF0g',
     model_version: 'insect_id:2.0.0',
