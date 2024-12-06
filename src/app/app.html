@@ -156,71 +156,82 @@
       class="popup-box"
       (click)="$event.preventDefault(); $event.stopPropagation()"
     >
-      <div class="">{{ imageInfo.data?.details.name || "" }}</div>
-      <a [href]="imageInfo.url || ''" class="">Link</a>
+      <div class="headers bigger">{{ imageInfo.data?.details.name || "" }}</div>
+      <a
+        [href]="imageInfo.url || ''"
+        class="popup-image"
+        (click)="$event.stopPropagation()"
+        >Link</a
+      >
       <div class="break-line"></div>
       <img [ngSrc]="imageInfo.image || ''" alt="" width="100" height="100" />
       <div class="break-line"></div>
-      <div class="">
+      <div class="headers">
         Common Names:
         <br />
         @for(name of imageInfo.data?.details.common_names; track i; let i =
         $index) {
-        <div>{{ name }}</div>
+        <div class="normal">{{ name }}</div>
         }
       </div>
       <div class="break-line"></div>
-      <div class="">
+      <div class="headers">
         Description: <br />
-        {{ imageInfo.description || "" }} <br />
-        Source: {{ imageInfo.url || "" }}
+        <div class="normal">
+          {{ imageInfo.description || "" }} <br />
+          Source: {{ imageInfo.url || "" }}
+        </div>
       </div>
       <div class="break-line"></div>
-      <div class="">
+      <div class="headers">
         Taxonomy:
         <br />
         @for(key of objectKeys(imageInfo.data?.details.taxonomy).reverse();
         track i; let i = $index) {
-        <div>{{ key }}: {{ imageInfo.data?.details.taxonomy[key] }}</div>
+        <div class="normal">{{ key }}: {{ imageInfo.data?.details.taxonomy[key] }}</div>
         }
       </div>
       <div class="break-line"></div>
-      <div class="">
+      <div class="headers">
         Life Cycle:
         <br />
         @for(time of imageInfo.data?.details.life_cycle; track i; let i =
         $index) {
-        <div>{{ time.stage }}: {{ time.appearance }}</div>
+        <div class="normal">{{ time.stage }}: {{ time.appearance }}</div>
         }
       </div>
       <div class="break-line"></div>
-      <div class="">
+      <div class="headers">
         Host Plants:
         <br />
         @for(name of imageInfo.data?.details.host_plants; track i; let i =
         $index) {
-        <div>{{ name }}</div>
+        <div class="normal">{{ name }}</div>
         }
       </div>
       <div class="break-line"></div>
-      <div class="">
+      <div class="headers">
         Range:
         <br />
-        {{ imageInfo.data?.details.range }}
+        <div class="normal">
+          {{ imageInfo.data?.details.range }}
+        </div>
       </div>
       <div class="break-line"></div>
-      <div class="">
+      <div class="headers">
         Harm to agriculture:
         <br />
-        {{ imageInfo.data?.details.harm_to_agriculture }}
+        <div class="normal">
+          {{ imageInfo.data?.details.harm_to_agriculture }}
+        </div>
       </div>
       <div class="break-line"></div>
-      <div class="">
+      <div class="headers">
         Effective control methods:
         <br />
         @for(type of imageInfo.data?.details.effective_control_methods; track i;
         let i = $index) {
-        <div>{{ type.method }}: {{ type.description }}</div>
+        <div class="normal">{{ type.method }}: {{ type.description }}</div>
         }
       </div>
     </div>
