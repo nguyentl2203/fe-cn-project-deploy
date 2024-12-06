@@ -1,4 +1,23 @@
 <div class="background">
+  <div class="navbar">
+    <div class="navbar-container">
+      <div class="logo-container">
+        <img
+          [ngSrc]="imgSrcArray[10]"
+          alt=""
+          width="100"
+          height="100"
+          class="logo"
+        />
+        <div class="logo-name">Nhóm 5 cái điếu to</div>
+      </div>
+      <div class="content-container">
+        <div class="content">Home</div>
+        <div class="content">About our team</div>
+        <div class="content">Donate</div>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="card {{ hasGetImageInfo ? 'small-card' : '' }}">
       @if(uploadImgSrc === '') {
@@ -72,7 +91,7 @@
             class="image_input"
           />
         </button>
-        <button type="button" class="button button2">Paste Base64</button>
+        <button type="button" class="button button2" (click)="openCamera()">Take a picture</button>
         } @else {
         <button type="button" class="button button3">
           Change Image
@@ -159,12 +178,18 @@
       <div class="headers bigger">{{ imageInfo.data?.details.name || "" }}</div>
       <a
         [href]="imageInfo.url || ''"
-        class="popup-image"
+        class="popup-url"
         (click)="$event.stopPropagation()"
-        >Link</a
+        >{{imageInfo.url || ''}}</a
       >
       <div class="break-line"></div>
-      <img [ngSrc]="imageInfo.image || ''" alt="" width="100" height="100" />
+      <img
+        [ngSrc]="imageInfo.image || ''"
+        alt=""
+        width="100"
+        height="100"
+        class="popup-image"
+      />
       <div class="break-line"></div>
       <div class="headers">
         Common Names:
@@ -179,7 +204,14 @@
         Description: <br />
         <div class="normal">
           {{ imageInfo.description || "" }} <br />
-          Source: {{ imageInfo.url || "" }}
+          Source:
+          <a
+            [href]="imageInfo.url || ''"
+            class="popup-url"
+            (click)="$event.stopPropagation()"
+          >
+            {{ imageInfo.url || "" }}
+          </a>
         </div>
       </div>
       <div class="break-line"></div>
@@ -188,7 +220,9 @@
         <br />
         @for(key of objectKeys(imageInfo.data?.details.taxonomy).reverse();
         track i; let i = $index) {
-        <div class="normal">{{ key }}: {{ imageInfo.data?.details.taxonomy[key] }}</div>
+        <div class="normal">
+          {{ key }}: {{ imageInfo.data?.details.taxonomy[key] }}
+        </div>
         }
       </div>
       <div class="break-line"></div>
@@ -213,9 +247,7 @@
       <div class="headers">
         Range:
         <br />
-        <div class="normal">
-          {{ imageInfo.data?.details.range }}
-        </div>
+        <div class="normal">{{ imageInfo.data?.details.range }}</div>
       </div>
       <div class="break-line"></div>
       <div class="headers">
@@ -237,3 +269,7 @@
     </div>
   </div>
 </div>
+<video #videoElement width="100%" height="auto" autoplay></video>
+<canvas #canvasElement style="display:none;"></canvas>
+<button (click)="takePicture()">Take Picture</button>
+<img #imagePreview src="" alt="Captured Image" />

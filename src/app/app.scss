@@ -1,19 +1,62 @@
 .background {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-image: url("/Background_Image.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 5%;
+}
+.navbar {
+  height: 8vh;
+}
+.navbar-container {
+  height: 100%;
+  max-width: 35rem;
+  margin: 0 auto;
+  padding-top: 1%;
+  display:flex;
+  align-items: center;
+}
+.logo-container {
+  background: white;
+  border-radius: 10px;
+  height: 95%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  height: 60%;
+  aspect-ratio: 1;
+  width: auto;
+  margin: 0 5%;
+}
+.logo-name {
+  text-align: center;
+  margin: 0 7.5% 0 0;
+  color: #00c04d;
+  font-weight: 600;
+}
+.content-container {
+  background: white;
+  border-radius: 10px;
+  height: 95%;
+  width: 67.5%;
+  margin-left: 2.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  margin: 05%;
+  font-weight: 600;
 }
 .container {
   width: 90%;
   max-width: 45rem;
   min-height: 90vh;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -31,7 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 8vh;
   flex-direction: column;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 3;
@@ -180,6 +223,7 @@
   border-radius: 5px 5px 0 0;
   font-size: 18px;
   font-weight: bold;
+  color: #00c04d;
 }
 .result-box {
   display: flex;
@@ -187,8 +231,8 @@
   margin-bottom: 2%;
 }
 .result-percent {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 500;
   width: 10%;
   height: 5%;
   margin: 3px 3px 3px 5%;
@@ -226,6 +270,7 @@
 }
 .result-detail {
   margin-left: 1px;
+  color: #00c04d;
 }
 .break-line {
   width: 100%;
@@ -271,10 +316,15 @@
 .normal {
   font-size: 14px !important;
 }
-.bigger
-{
+.bigger {
   font-size: 22px !important;
 }
 .popup-image {
   border-radius: 5px;
+  height: 15vh;
+  aspect-ratio: 1;
+  width: auto;
+}
+.popup-url {
+  color: #00c04d;
 }
