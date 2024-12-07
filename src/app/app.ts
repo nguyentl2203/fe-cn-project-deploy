@@ -1,5 +1,5 @@
 import { Collection } from './app.collection';
-import { NgOptimizedImage, NgStyle } from '@angular/common';
+import { NgOptimizedImage, NgStyle, PercentPipe } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ApiFetchingService } from './app.service';
 import { FirstLetterUppercasePipe } from './app.pipe';
@@ -7,7 +7,7 @@ import { FirstLetterUppercasePipe } from './app.pipe';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgOptimizedImage, NgStyle, FirstLetterUppercasePipe],
+  imports: [NgOptimizedImage, NgStyle, FirstLetterUppercasePipe, PercentPipe],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -57,15 +57,13 @@ export class AppComponent {
     this.isLoading1 = true;
     const res = await this.apiService.getImageInfo(this.uploadImgSrc);
     this.fetchingData = res.result.classification.suggestions;
-    console.log(res);
-    console.log(this.fetchingData);
     this.isLoading1 = false;
   }
   async getImageDetailInfo(i: number) {
     this.isLoading2 = true;
     const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
     this.imageInfo = res;
-    console.log(this.imageInfo);
+    this.console(this.imageInfo)
     this.isLoading2 = false;
   }
   objectKeys(obj: any): string[] {

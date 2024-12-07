@@ -13,7 +13,8 @@ export class Collection {
     '../../circle-dashed-svgrepo-com.svg',
     '../../circle-information-svgrepo-com.svg',
     '../../arrow-narrow-left-svgrepo-com.svg',
-    '../../cross-svgrepo-com.svg'
+    '../../cross-svgrepo-com.svg',
+    '../../image-1-svgrepo-com.svg'
   ];
   videoSrc: string[] = [
     '../../Loading Screen Effect.mp4'
@@ -202,7 +203,7 @@ export class Collection {
         ],
         host_plants: ['Poplar (Populus spp.)', 'Willow (Salix spp.)'],
         range: 'Europe and parts of Asia.',
-        harm_to_agriculture:
+        harm_for_agriculture:
           'The puss moth caterpillar can defoliate poplar and willow trees, particularly younger ones.  Heavy infestations can lead to growth reduction and damage to commercially grown trees.',
         effective_control_methods: [
           {

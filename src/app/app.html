@@ -145,7 +145,7 @@
       <div class="break-line nope"></div>
       @for(data of fetchingData; track i; let i = $index) {
       <div class="result-box">
-        <div class="result-percent">{{ data.probability * 100 }}%</div>
+        <div class="result-percent">{{ data.probability | percent }}</div>
         <div class="break">&nbsp;</div>
         <div class="result-image-container">
           @for(image of data.similar_images; track i; let i = $index) {
@@ -216,7 +216,7 @@
       >
       <div class="break-line"></div>
       <img
-        [ngSrc]="imageInfo.image"
+        [ngSrc]="imageInfo.image || imgSrcArray[14]"
         alt=""
         width="100"
         height="100"
@@ -286,7 +286,7 @@
         Harm to agriculture:
         <br />
         <div class="normal">
-          {{ imageInfo.data?.details.harm_to_agriculture }}
+          {{ imageInfo.data?.details.harm_for_agriculture }}
         </div>
       </div>
       <div class="break-line"></div>
