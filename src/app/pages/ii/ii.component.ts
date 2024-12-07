@@ -1,17 +1,17 @@
-import { Collection } from './app.collection';
+import { Collection } from '../../utils/app.collection';
 import { NgOptimizedImage, NgStyle, PercentPipe } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ApiFetchingService } from './app.service';
-import { FirstLetterUppercasePipe } from './app.pipe';
+import { ApiFetchingService } from '../../utils/app.service';
+import { FirstLetterUppercasePipe } from '../../utils/app.pipe';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-ii',
   standalone: true,
   imports: [NgOptimizedImage, NgStyle, FirstLetterUppercasePipe, PercentPipe],
-  templateUrl: './app.html',
-  styleUrl: './app.scss',
+  templateUrl: './ii.html',
+  styleUrl: './ii.scss',
 })
-export class AppComponent {
+export class IIComponent {
   imgSrcArray: string[] = [];
   videoSrcArray: string[] = []
   preImageSrcArray: number[] = [];
