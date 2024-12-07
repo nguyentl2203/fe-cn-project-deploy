@@ -57,6 +57,8 @@ export class AppComponent {
     this.isLoading1 = true;
     const res = await this.apiService.getImageInfo(this.uploadImgSrc);
     this.fetchingData = res.result.classification.suggestions;
+    console.log(res);
+    console.log(this.fetchingData);
     this.isLoading1 = false;
   }
   async getImageDetailInfo(i: number) {
@@ -64,7 +66,6 @@ export class AppComponent {
     const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
     this.imageInfo = res;
     console.log(this.imageInfo);
-    console.log(this.imageInfo.data.details.life_cycle);
     this.isLoading2 = false;
   }
   objectKeys(obj: any): string[] {
