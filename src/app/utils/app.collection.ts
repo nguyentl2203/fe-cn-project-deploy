@@ -15,8 +15,8 @@ export class Collection {
     'arrow-narrow-left-svgrepo-com.svg',
     'cross-svgrepo-com.svg',
     'image-1-svgrepo-com.svg',
-    'download (1).jfif',
-    'download (2).jfif',
+    'star-fall-2-svgrepo-com (1).svg',
+    'star-fall-minimalistic-svgrepo-com.svg'
   ];
   videoSrc: string[] = ['Loading Screen Effect.mp4'];
   fetchingData = {

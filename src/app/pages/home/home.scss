@@ -18,42 +18,144 @@
   font-weight: bolder;
   color: #00c04d;
   position: relative;
-  padding: 5rem 0 0 3rem;
-
-  // text-shadow: 0 10px 10px rgba(0, 0, 0, 1);
+  padding: 5rem 3rem 0 3rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 .name {
-  z-index: 99;
+  position: relative;
 }
-.subname {
-}
-.go {
-}
-.image1 {
+.stroke-container-1 {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: start;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: -0.5rem;
+  left: -52.5rem;
 }
-.stroke-container {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+.stroke-container-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  position: absolute;
+  bottom: -1.5rem;
+  right: -2.5rem;
+  z-index: 0;
 }
 .stroke {
-  margin: 1px;
-  height: 1vw;
+  margin: 0.1rem;
+  height: 0.5rem;
   background: #00c04d;
   border-radius: 5px;
+  z-index: 0;
 }
 .s1 {
-  width: 2rem;
+  width: 1.5rem;
+  background: #f80909;
 }
 .s2 {
-  width: 3rem;
+  width: 2.75rem;
+  background: #f5d106;
 }
 .s3 {
-  width: 4rem;
+  width: 4.5rem;
+  background: #67f40a;
 }
 .s4 {
-  width: 5rem;
+  width: 6.5rem;
+  background: #08f46e;
+}
+.s5 {
+  width: 3.8rem;
+  background: #0bf5d6;
+}
+.s6 {
+  width: 5.4rem;
+  background: #0672f6;
+}
+.s7 {
+  width: 7.8rem;
+  background: #4007fa;
+}
+.s8 {
+  width: 10.2rem;
+  background: #a00af1;
+}
+.s9 {
+  width: 12.6rem;
+  background: #fb08ce;
+}
+.s10 {
+  width: 1rem;
+  background: #f6063e;
+}
+.s11 {
+  width: 1.2rem;
+  background: #f7e009;
+}
+.s12 {
+  width: 1rem;
+  background: #30f309;
+}
+.s13 {
+  width: 1.15rem;
+  background: #08f878;
+}
+.s14 {
+  width: 1.3rem;
+  background: #0bf6ea;
+}
+.image1 {
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  top: -4.5rem;
+  right: 0;
+  transform: rotate(30deg);
+}
+.image2 {
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  bottom: -4.5rem;
+  left: 0;
+  transform: rotate(210deg);
+}
+.service-container {
+  padding: 5rem 5rem 0 5rem;
+  display: flex;
+  flex-direction: column;
+}
+.service-box {
+  background: #00c04d;
+  padding: 0.7rem 1.3rem;
+  margin: 1rem;
+  border-radius: 10px;
+  max-width: 25rem;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.start {
+  align-self: start;
+  background: #00ff59;
+}
+.end {
+  align-self: end;
+  background: #3de9f9;
+}
+.startt {
+  top: -1.375rem;
+  left: -1.75rem;
+}
+.endd {
+  bottom: -1.5rem;
+  right: -1.5rem;
+}
+.service-name {
+  font-size: medium;
+  font-weight: 600;
+}
+.service-description {
+  font-size: small;
 }
