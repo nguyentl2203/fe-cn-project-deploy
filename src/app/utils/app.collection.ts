@@ -1,24 +1,24 @@
 export class Collection {
   imgSrc: string[] = [
-    '../../add-photo-svgrepo-com.svg',
-    '../../Arrows_1_Artboard_18-1024.webp',
-    '../../rectangle-thin-svgrepo-com.svg',
-    '../../download (1).jpg',
-    '../../download (2).jpg',
-    '../../OIP (1).jpg',
-    '../../OIP (2).jpg',
-    '../../OIP (3).jpg',
-    '../../th (1).jpg',
-    '../../search-alt-2-svgrepo-com.svg',
-    '../../circle-dashed-svgrepo-com.svg',
-    '../../circle-information-svgrepo-com.svg',
-    '../../arrow-narrow-left-svgrepo-com.svg',
-    '../../cross-svgrepo-com.svg',
-    '../../image-1-svgrepo-com.svg'
+    'add-photo-svgrepo-com.svg',
+    'Arrows_1_Artboard_18-1024.webp',
+    'rectangle-thin-svgrepo-com.svg',
+    'download (1).jpg',
+    'download (2).jpg',
+    'OIP (1).jpg',
+    'OIP (2).jpg',
+    'OIP (3).jpg',
+    'th (1).jpg',
+    'search-alt-2-svgrepo-com.svg',
+    'circle-dashed-svgrepo-com.svg',
+    'circle-information-svgrepo-com.svg',
+    'arrow-narrow-left-svgrepo-com.svg',
+    'cross-svgrepo-com.svg',
+    'image-1-svgrepo-com.svg',
+    'download (1).jfif',
+    'download (2).jfif',
   ];
-  videoSrc: string[] = [
-    '../../Loading Screen Effect.mp4'
-  ]
+  videoSrc: string[] = ['Loading Screen Effect.mp4'];
   fetchingData = {
     access_token: 'iVGCaws5b3BYF0g',
     model_version: 'insect_id:2.0.0',

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: cnproject_italic;
+  src: url("../../../../public/PlaywriteGBS-Italic-VariableFont_wght.ttf");
+}
+.container {
+  max-width: 40rem;
+  aspect-ratio: 1;
+  height: auto;
+  background: white;
+  margin: 5vh auto 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.name-container {
+  font-family: cnproject_italic;
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: bolder;
+  color: #00c04d;
+  position: relative;
+  padding: 5rem 0 0 3rem;
+
+  // text-shadow: 0 10px 10px rgba(0, 0, 0, 1);
+}
+.name {
+  z-index: 99;
+}
+.subname {
+}
+.go {
+}
+.image1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.stroke-container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.stroke {
+  margin: 1px;
+  height: 1vw;
+  background: #00c04d;
+  border-radius: 5px;
+}
+.s1 {
+  width: 2rem;
+}
+.s2 {
+  width: 3rem;
+}
+.s3 {
+  width: 4rem;
+}
+.s4 {
+  width: 5rem;
+}
