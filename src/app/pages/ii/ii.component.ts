@@ -1,55 +1,43 @@
 import { Collection } from '../../utils/app.collection';
-import { NgOptimizedImage, NgStyle, PercentPipe } from '@angular/common';
+import { NgOptimizedImage} from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ApiFetchingService } from '../../utils/app.service';
-import { FirstLetterUppercasePipe } from '../../utils/app.pipe';
+import { CardComponent } from '../../components/card/card.component';
+import { ResultComponent } from '../../components/result/result.component';
+import { PopupComponent } from '../../components/popup/popup.component';
 
 @Component({
   selector: 'app-ii',
   standalone: true,
-  imports: [NgOptimizedImage, NgStyle, FirstLetterUppercasePipe, PercentPipe],
+  imports: [NgOptimizedImage, CardComponent, ResultComponent, PopupComponent],
   templateUrl: './ii.html',
   styleUrl: './ii.scss',
 })
 export class IIComponent {
   imgSrcArray: string[] = [];
-  videoSrcArray: string[] = []
-  preImageSrcArray: number[] = [];
+  videoSrcArray: string[] = [];
   uploadImgSrc: string = '';
   hasGetImageInfo: boolean = false;
   isLoading1: boolean = false;
   isLoading2: boolean = false;
-  isCameraLoading: boolean = false
+  isCameraLoading: boolean = false;
   fetchingData: Array<any> = [];
   isPopupOpen: boolean = false;
   isCameraOpen: boolean = false;
   imageInfo: any = {};
-  keys: string[] = [];
 
   @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
   @ViewChild('canvasElement') canvasElement!: ElementRef<HTMLCanvasElement>;
 
-  private mediaStream: MediaStream | null = null
+  private mediaStream: MediaStream | null = null;
 
   constructor(private apiService: ApiFetchingService) {
     const collection = new Collection();
     this.imgSrcArray = collection.imgSrc;
     this.videoSrcArray = collection.videoSrc;
-    this.preImageSrcArray = this.imgSrcArray.slice(2, 8).map((_, i) => i + 3);
     // this.fetchingData =
     //   collection.fetchingData.result.classification.suggestions;
     // this.imageInfo = collection.fetchingDataDetails;
-  }
-  onFileChange(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result as string;
-        this.uploadImgSrc = base64String;
-      };
-      reader.readAsDataURL(file);
-    }
   }
 
   async getImageInfo() {
@@ -63,35 +51,15 @@ export class IIComponent {
     this.isLoading2 = true;
     const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
     this.imageInfo = res;
-    this.console(this.imageInfo)
     this.isLoading2 = false;
-  }
-  objectKeys(obj: any): string[] {
-    if (obj === null || typeof obj !== 'object') return [];
-    return Object.keys(obj);
-  }
-  openCamera() {
-    this.isCameraLoading = true
-    navigator.mediaDevices
-      .getUserMedia({ video: true })
-      .then((stream) => {
-        this.mediaStream = stream
-        this.videoElement.nativeElement.srcObject = stream;
-        this.isCameraLoading = false
-      })
-      .catch((err) => {
-        console.log('Error accessing the camera: ', err);
-        this.isCameraLoading = false
-      });
-    this.isCameraOpen = true
   }
   stopCamera() {
     if (this.mediaStream) {
-      const tracks = this.mediaStream.getTracks()
+      const tracks = this.mediaStream.getTracks();
       tracks.forEach((track) => {
-        track.stop()
-      })
-      this.videoElement.nativeElement.srcObject = null
+        track.stop();
+      });
+      this.videoElement.nativeElement.srcObject = null;
     }
   }
   takePicture() {
@@ -105,10 +73,31 @@ export class IIComponent {
       const dataUrl = canvas.toDataURL('image/png');
       this.uploadImgSrc = dataUrl;
     }
-    this.isCameraOpen = false
-    this.stopCamera()
+    this.isCameraOpen = false;
+    this.stopCamera();
   }
-
+  handleStream(stream: MediaStream) {
+    this.mediaStream = stream;
+    this.videoElement.nativeElement.srcObject = stream;
+  }
+  handleCamera(camera: { open?: boolean; is_loading?: boolean }) {
+    if (camera.is_loading) {
+      this.isCameraLoading = camera.is_loading;
+    }
+    if (camera.open) {
+      this.isCameraOpen = camera.open;
+    }
+  }
+  handleImgSrc(imgSrc: string) {
+    this.uploadImgSrc = imgSrc
+  }
+  handlePopup(popup: {open: boolean, index?: number}) {
+    this.isPopupOpen = popup.open;
+    console.log(popup.index)
+    if(popup.index || popup.index === 0) {
+      this.getImageDetailInfo(popup.index);
+    }
+  }
   console(data: any) {
     console.log(data);
   }
