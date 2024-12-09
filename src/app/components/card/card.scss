@@ -1,8 +1,7 @@
 .card {
-  position: relative;
   background: white;
-  width: 100%;
-  height: 50vh;
+  width: 20rem;
+  height: 25rem;
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -10,7 +9,6 @@
   margin-top: 8vh;
   flex-direction: column;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 3;
 }
 .small-card {
   width: 25% !important;
@@ -22,7 +20,11 @@
 .image {
   position: relative;
   width: 75%;
-  padding: 12.5vh 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
 }
 .image-container {
   position: relative;
@@ -41,27 +43,27 @@
   z-index: 999;
 }
 .image-box {
-  transform: rotate(90deg) scale(0.8);
+  transform: rotate(90deg) scale(0.9);
 }
 .image-add {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: scale(0.3) translateX(calc(-50% - 14.5vh));
+  left: 0;
+  transform: scale(0.35);
 }
 .image-arrow {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: rotate(190deg) translateX(50%) translateY(10vh);
+  transform: rotate(190deg) translateX(50%) translateY(5rem);
 }
 .preimage-container {
   position: absolute;
   top: 25%;
-  left: 50%;
-  width: 35%;
-  height: 35%;
-  transform: translateX(-25%) translateY(-40%) rotate(15deg);
+  right: 25%;
+  width: 10rem;
+  height: 10rem;
+  transform: translateX(-2.5rem) translateY(-4.5rem) rotate(20deg);
 }
 .preimage-box {
   position: relative;
@@ -72,18 +74,18 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 49%;
-  height: 60%;
+  width: 4rem;
+  height: 6rem;
   border-radius: 5px;
   object-fit: fill;
   transform-origin: bottom center;
 }
 .button-container {
   width: 100%;
-  transform: translateY(2.5vh);
+  transform: translateY(-0.5rem);
 }
 .button {
-  height: 5vh;
+  height: 2.5rem;
   border-radius: 10px;
   border: none;
   width: 45%;
