@@ -50,7 +50,7 @@ export class IIComponent {
   async getImageDetailInfo(i: number) {
     this.isLoading2 = true;
     const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
-    this.imageInfo = res;
+    this.imageInfo = res || null;
     this.isLoading2 = false;
   }
   stopCamera() {

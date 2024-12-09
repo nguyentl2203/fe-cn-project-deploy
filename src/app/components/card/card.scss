@@ -11,9 +11,9 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .small-card {
-  width: 25% !important;
-  height: 25vh !important;
-  margin-top: 5vh !important;
+  width: 10rem;
+  height: 12.5rem;
+  margin-top: 5vh;
   transition: width 0.75s ease-in-out, height 0.75s ease-in-out,
     margin-top 0.75s ease-in-out;
 }
@@ -33,6 +33,15 @@
   flex-direction: column;
   transform: rotate(-20deg) translate(-5vh, 9vh);
 }
+.image-coninfo {
+  transform: rotate(0) scaleX(2.8) scaleY(3.2);
+  transition: transform 1s ease-in-out 100ms;
+  overflow: hidden;
+}
+.image-containerinfo {
+  width: 8.5rem;
+  height: 10.5rem;
+}
 .image_input {
   position: absolute;
   top: 0;
@@ -44,6 +53,11 @@
 }
 .image-box {
   transform: rotate(90deg) scale(0.9);
+  border-radius: 5px;
+}
+.image-info {
+  transform: rotate(0deg);
+  transition: transform 1s ease-in-out 100ms;
 }
 .image-add {
   position: absolute;
@@ -123,4 +137,11 @@
 }
 .hidden {
   display: none;
+}
+.full
+{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }

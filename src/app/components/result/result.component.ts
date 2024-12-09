@@ -11,6 +11,8 @@ import { Collection } from '../../utils/app.collection';
 })
 export class ResultComponent {
   imgSrcArray: string[] = [];
+  loop1: number[] = [1, 2]
+  loop2: number[] = [1, 2, 3];
 
   @Input() isLoading: boolean = false;
   @Input() hasGetImageInfo: boolean = false;

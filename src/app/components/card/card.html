@@ -6,21 +6,23 @@
       placeholder="_"
       class="image_input"
     />
-    <div class="{{hasGetImageInfo ? 'hidden' : 'image-container'}}">
+    <div
+      class="{{hasGetImageInfo ? 'image-containerinfo' : uploadImgSrc === '' ? 'image-container' : 'image-container image-coninfo'}}"
+    >
       <img
         [ngSrc]="uploadImgSrc === '' ? imgSrcArray[2] : uploadImgSrc"
         alt=""
         width="100"
         height="100"
         priority
-        class="image-box"
+        class=" {{hasGetImageInfo ? 'full' : uploadImgSrc === '' ? 'image-box' : 'image-box image-info'}}"
       />
       <img
         [ngSrc]="imgSrcArray[0]"
         alt=""
         width="100"
         height="100"
-        class="image-add"
+        class="{{uploadImgSrc === '' ? 'image-add' : 'hidden'}}"
       />
       <img
         [ngSrc]="imgSrcArray[1]"
@@ -28,11 +30,11 @@
         width="100"
         height="100"
         priority
-        class="image-arrow"
+        class="{{uploadImgSrc === '' ? 'image-arrow' : 'hidden'}}"
       />
     </div>
   </div>
-  <div class="{{hasGetImageInfo ? 'hidden' : 'preimage-container'}}">
+  <div class="{{uploadImgSrc !== '' ? 'hidden' : 'preimage-container'}}">
     <div class="preimage-box">
       @for(image of preImageSrcArray; track i; let i = $index) {
       <img
