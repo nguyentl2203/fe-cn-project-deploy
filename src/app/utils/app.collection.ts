@@ -10,7 +10,7 @@ export class Collection {
     'OIP (3).jpg',
     'th (1).jpg',
     'search-alt-2-svgrepo-com.svg',
-    'circle-dashed-svgrepo-com.svg',
+    'yea.jpg',
     'circle-information-svgrepo-com.svg',
     'arrow-narrow-left-svgrepo-com.svg',
     'cross-svgrepo-com.svg',

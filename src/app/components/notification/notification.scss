@@ -1,25 +1,41 @@
 .container {
-  height: 100vh;
-  width: 100vw;
   position: absolute;
   top: 0;
-  left: 0;
-}
-.box {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-}
-.notification-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 5rem;
+  right: -20rem;
+  height: 4rem;
   min-width: 12.5rem;
   background: white;
   margin: 1rem 1rem 0 0;
   border-radius: 5px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  z-index: 99999999;
 }
 .hide {
-    right: -20rem;
+  transform: translateX(20rem);
+  transition: transform 1s ease-in-out;
+}
+.show {
+  transform: translateX(-20rem);
+  transition: transform 1s ease-in-out;
+}
+.content-container {
+  height: 100%;
+  width: 100%;
+  padding: 0.3rem;
+}
+.content-image {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.content {
+  color: white;
+}
+.success {
+  background: #00c04d;
+}
+.normal {
+  background: gray;
+}
+.error {
+  background: red;
 }

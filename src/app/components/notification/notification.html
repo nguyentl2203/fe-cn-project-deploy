@@ -1,5 +1,21 @@
 <div class="container">
-    <div class="box">
-        <div class="notification-container {{isTriggger ? '' : 'hide'}}"></div>
-    </div>
+  <div
+    class="content-container"
+    [ngClass]="{
+      show: isTrigger,
+      hide: !isTrigger,
+      success: notificationClass === 'success',
+      normal: notificationClass === 'normal',
+      error: notificationClass === 'error'
+    }"
+  >
+    <img
+      [ngSrc]="imgSrcArray[11]"
+      alt=""
+      width="100"
+      height="100"
+      class="content-image"
+    />
+    <div class="content">{{notificationContent}} </div>
+  </div>
 </div>

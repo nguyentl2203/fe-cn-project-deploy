@@ -1,7 +1,10 @@
 import { Collection } from '../../utils/app.collection';
 import { NgOptimizedImage } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ApiFetchingService } from '../../utils/app.service';
+import {
+  ApiFetchingService,
+  NotificationService,
+} from '../../utils/app.service';
 import { CardComponent } from '../../components/card/card.component';
 import { ResultComponent } from '../../components/result/result.component';
 import { PopupComponent } from '../../components/popup/popup.component';
@@ -31,7 +34,10 @@ export class IIComponent {
 
   private mediaStream: MediaStream | null = null;
 
-  constructor(private apiService: ApiFetchingService) {
+  constructor(
+    private apiService: ApiFetchingService,
+    private notificationService: NotificationService
+  ) {
     const collection = new Collection();
     this.imgSrcArray = collection.imgSrc;
     this.videoSrcArray = collection.videoSrc;
@@ -44,13 +50,15 @@ export class IIComponent {
     this.hasGetImageInfo = true;
     this.isLoading1 = true;
     const res = await this.apiService.getImageInfo(this.uploadImgSrc);
-    this.fetchingData = res.result.classification.suggestions;
+    if(res !== undefined) {
+      this.fetchingData = res.result.classification.suggestions;
+    }
     this.isLoading1 = false;
   }
   async getImageDetailInfo(i: number) {
     this.isLoading2 = true;
     const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
-    this.imageInfo = res || null;
+    this.imageInfo = res;
     this.isLoading2 = false;
   }
   stopCamera() {
@@ -63,7 +71,6 @@ export class IIComponent {
     }
   }
   takePicture() {
-    console.log('moimoi');
     const video = this.videoElement.nativeElement;
     const canvas = this.canvasElement.nativeElement;
     const context = canvas.getContext('2d');
@@ -94,7 +101,6 @@ export class IIComponent {
   }
   handlePopup(popup: { open: boolean; index?: number }) {
     this.isPopupOpen = popup.open;
-    console.log(popup.index);
     if (popup.index || popup.index === 0) {
       this.getImageDetailInfo(popup.index);
     }
