@@ -27,6 +27,7 @@ export class IIComponent {
   fetchingData: Array<any> = [];
   isPopupOpen: boolean = false;
   isCameraOpen: boolean = false;
+  imageInfoCache: Array<any> = [];
   imageInfo: any = {};
 
   @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
@@ -50,15 +51,27 @@ export class IIComponent {
     this.hasGetImageInfo = true;
     this.isLoading1 = true;
     const res = await this.apiService.getImageInfo(this.uploadImgSrc);
-    if(res !== undefined) {
+    this.fetchingData = [];
+    if (res !== undefined) {
       this.fetchingData = res.result.classification.suggestions;
     }
     this.isLoading1 = false;
   }
   async getImageDetailInfo(i: number) {
     this.isLoading2 = true;
-    const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
-    this.imageInfo = res;
+    const id = this.fetchingData[i]?.id;
+    if (
+      !this.imageInfoCache.find((item: any) => item[id])
+    ) {
+      const res = await this.apiService.getDetailInfo(this.fetchingData[i]);
+      this.addToCache(res);
+    }
+    this.imageInfo = this.imageInfoCache.reduce((acc: any, item: any) => {
+      if (item[id]) {
+        return { ...acc, ...item[id] };
+      }
+      return acc;
+    }, {});
     this.isLoading2 = false;
   }
   stopCamera() {
@@ -103,6 +116,24 @@ export class IIComponent {
     this.isPopupOpen = popup.open;
     if (popup.index || popup.index === 0) {
       this.getImageDetailInfo(popup.index);
+    }
+  }
+  addToCache(data: any) {
+    const existingIndex = this.imageInfoCache.findIndex(
+      (item: any) => item[data.id]
+    );
+    if (existingIndex === -1) {
+      const cacheData = {
+        [data.id]: {
+          ...data.data.details,
+          description: data.description,
+          image: data.image,
+          images: data.images,
+          inaturalist_url: data.inaturalist_url,
+          url: data.url,
+        },
+      };
+      this.imageInfoCache.push(cacheData);
     }
   }
   console(data: any) {

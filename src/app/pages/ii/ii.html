@@ -1,7 +1,7 @@
 <div class="container">
   <div
     class="{{hasGetImageInfo ? '' : 'hidden'}} back"
-    (click)="uploadImgSrc = ''; hasGetImageInfo = false"
+    (click)="uploadImgSrc = ''; hasGetImageInfo = false; isLoading1 = false; fetchingData = []; imageInfoCache = []; imageInfo = {}"
   >
     <img
       [ngSrc]="imgSrcArray[12]"

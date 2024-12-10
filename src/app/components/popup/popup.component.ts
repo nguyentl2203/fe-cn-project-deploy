@@ -12,9 +12,9 @@ import { NgOptimizedImage } from '@angular/common';
 export class PopupComponent {
   imgSrcArray: string[] = [];
 
-  @Input() isLoading: boolean = false
+  @Input() isLoading: boolean = false;
   @Input() isPopupOpen: boolean = false;
-  @Input() imageInfo: any = {}
+  @Input() imageInfo: any = {};
   @Output() popupEvent: EventEmitter<{ open: boolean }> = new EventEmitter<{
     open: boolean;
   }>();

@@ -8,7 +8,7 @@
   >
     @if(!isLoading) {
     <div class="name-container">
-      <div class="headers bigger">{{ imageInfo.data?.details.name }}</div>
+      <div class="headers bigger">{{ imageInfo.name }}</div>
       <img
         [ngSrc]="imgSrcArray[13]"
         alt=""
@@ -38,7 +38,7 @@
     <div class="headers">
       Common Names:
       <br />
-      @for(name of imageInfo.data?.details.common_names; track i; let i =
+      @for(name of imageInfo.common_names; track i; let i =
       $index) {
       <div class="normal">{{ name }}</div>
       }
@@ -62,10 +62,10 @@
     <div class="headers">
       Taxonomy:
       <br />
-      @for(key of objectKeys(imageInfo.data?.details.taxonomy).reverse(); track
+      @for(key of objectKeys(imageInfo.taxonomy).reverse(); track
       i; let i = $index) {
       <div class="normal">
-        {{ key }}: {{ imageInfo.data?.details.taxonomy[key] }}
+        {{ key }}: {{ imageInfo.taxonomy[key] }}
       </div>
       }
     </div>
@@ -73,7 +73,7 @@
     <div class="headers">
       Life Cycle:
       <br />
-      @for(time of imageInfo.data?.details.life_cycle; track i; let i = $index)
+      @for(time of imageInfo.life_cycle; track i; let i = $index)
       {
       <div class="normal">{{ time.stage }}: {{ time.appearance }}</div>
       }
@@ -82,7 +82,7 @@
     <div class="headers">
       Host Plants:
       <br />
-      @for(name of imageInfo.data?.details.host_plants; track i; let i = $index)
+      @for(name of imageInfo.host_plants; track i; let i = $index)
       {
       <div class="normal">{{ name }}</div>
       }
@@ -91,21 +91,21 @@
     <div class="headers">
       Range:
       <br />
-      <div class="normal">{{ imageInfo.data?.details.range }}</div>
+      <div class="normal">{{ imageInfo.range }}</div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Harm to agriculture:
       <br />
       <div class="normal">
-        {{ imageInfo.data?.details.harm_for_agriculture }}
+        {{ imageInfo.harm_for_agriculture }}
       </div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Effective control methods:
       <br />
-      @for(type of imageInfo.data?.details.effective_control_methods; track i;
+      @for(type of imageInfo.effective_control_methods; track i;
       let i = $index) {
       <div class="normal">{{ type.method }}: {{ type.description }}</div>
       }

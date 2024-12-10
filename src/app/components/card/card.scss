@@ -53,6 +53,7 @@
 }
 .image-box {
   transform: rotate(90deg) scale(0.9);
+  object-fit: cover;
   border-radius: 5px;
 }
 .image-info {
@@ -138,8 +139,7 @@
 .hidden {
   display: none;
 }
-.full
-{
+.full {
   height: 100%;
   width: 100%;
   object-fit: cover;

@@ -1,6 +1,7 @@
 import { NgOptimizedImage, NgStyle } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Collection } from '../../utils/app.collection';
+import { NotificationService } from '../../utils/app.service';
 
 @Component({
   selector: 'app-card',
@@ -22,7 +23,7 @@ export class CardComponent {
     is_loading?: boolean;
   }> = new EventEmitter<{ open?: boolean; is_loading?: boolean }>();
   @Output() imgSrcEvent: EventEmitter<string> = new EventEmitter<string>();
-  constructor() {
+  constructor(private notificationService: NotificationService) {
     const collection = new Collection();
     this.imgSrcArray = collection.imgSrc;
     this.preImageSrcArray = this.imgSrcArray.slice(2, 8).map((_, i) => i + 3);
@@ -48,7 +49,7 @@ export class CardComponent {
         this.cameraEvent.emit({ is_loading: false });
       })
       .catch((err) => {
-        console.log('Error accessing the camera: ', err);
+        this.notificationService.triggerNotification('error', err)
         this.cameraEvent.emit({ is_loading: false });
       });
     this.cameraEvent.emit({ open: true });
