@@ -8,7 +8,7 @@ import { Collection } from './app.collection';
 })
 export class ApiFetchingService {
   // private readonly url = 'https://be-cn-project.onrender.com/';
-  private readonly url = 'http://localhost:10000/'
+  private readonly url = 'http://localhost:10000/';
   constructor(private notificationService: NotificationService) {}
   async getImageInfo(data: any) {
     const payload = {
@@ -19,16 +19,12 @@ export class ApiFetchingService {
       this.notificationService.triggerNotification('success', 'Done');
       return res.data;
     } catch (err: any) {
-      this.notificationService.triggerNotification('error', err.response.data.message || err.message);
-      return
+      this.notificationService.triggerNotification(
+        'error',
+        err.response.data.message || err.message
+      );
+      return;
     }
-    // const fakeRes = new Collection();
-    // return new Promise<any>((resolve) => {
-    //   timer(3000).subscribe(() => {
-    //     const fakeResponse = fakeRes.fetchingData;
-    //     resolve(fakeResponse);
-    //   });
-    // });
   }
   async getDetailInfo(data: any) {
     const payload = {
@@ -38,15 +34,9 @@ export class ApiFetchingService {
     };
     const res = await axios.post(`${this.url}details`, payload);
     return res.data;
-    // const fakeRes = new Collection();
-    // return new Promise<any>((resolve) => {
-    //   timer(3000).subscribe(() => {
-    //     const fakeGemini = fakeRes.fetchingDataDetails;
-    //     resolve(fakeGemini);
-    //   });
-    // });
   }
 }
+//
 @Injectable({
   providedIn: 'root',
 })
