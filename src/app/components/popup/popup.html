@@ -25,6 +25,14 @@
       class="popup-url"
       (click)="$event.stopPropagation()"
       >{{imageInfo.url}}</a
+    > <br>
+    <a
+      [href]="imageInfo.inaturalist_url"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="popup-url"
+      (click)="$event.stopPropagation()"
+      >{{imageInfo.inaturalist_url}}</a
     >
     <div class="break-line"></div>
     <img
@@ -38,8 +46,7 @@
     <div class="headers">
       Common Names:
       <br />
-      @for(name of imageInfo.common_names; track i; let i =
-      $index) {
+      @for(name of imageInfo.common_names; track i; let i = $index) {
       <div class="normal">{{ name }}</div>
       }
     </div>
@@ -62,19 +69,16 @@
     <div class="headers">
       Taxonomy:
       <br />
-      @for(key of objectKeys(imageInfo.taxonomy).reverse(); track
-      i; let i = $index) {
-      <div class="normal">
-        {{ key }}: {{ imageInfo.taxonomy[key] }}
-      </div>
+      @for(key of objectKeys(imageInfo.taxonomy).reverse(); track i; let i =
+      $index) {
+      <div class="normal">{{ key }}: {{ imageInfo.taxonomy[key] }}</div>
       }
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Life Cycle:
       <br />
-      @for(time of imageInfo.life_cycle; track i; let i = $index)
-      {
+      @for(time of imageInfo.life_cycle; track i; let i = $index) {
       <div class="normal">{{ time.stage }}: {{ time.appearance }}</div>
       }
     </div>
@@ -82,8 +86,7 @@
     <div class="headers">
       Host Plants:
       <br />
-      @for(name of imageInfo.host_plants; track i; let i = $index)
-      {
+      @for(name of imageInfo.host_plants; track i; let i = $index) {
       <div class="normal">{{ name }}</div>
       }
     </div>
@@ -97,16 +100,14 @@
     <div class="headers">
       Harm to agriculture:
       <br />
-      <div class="normal">
-        {{ imageInfo.harm_for_agriculture }}
-      </div>
+      <div class="normal">{{ imageInfo.harm_for_agriculture }}</div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Effective control methods:
       <br />
-      @for(type of imageInfo.effective_control_methods; track i;
-      let i = $index) {
+      @for(type of imageInfo.effective_control_methods; track i; let i = $index)
+      {
       <div class="normal">{{ type.method }}: {{ type.description }}</div>
       }
     </div>
@@ -129,48 +130,48 @@
     <div class="headers">
       Common Names:
       <br />
-      <div class="normal skeleton" style="width: 10rem; height: 1rem;"></div>
+      <div class="normal skeleton" style="width: 10rem; height: 1rem"></div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Description: <br />
-      <div class="normal skeleton" style="width: 10rem; height: 1rem;"></div>
+      <div class="normal skeleton" style="width: 10rem; height: 1rem"></div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Taxonomy:
       <br />
-      <div class="normal skeleton" style="width: 10rem; height: 1rem;"></div>
+      <div class="normal skeleton" style="width: 10rem; height: 1rem"></div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Life Cycle:
       <br />
-      <div class="normal skeleton" style="width: 10rem; height: 1rem;"></div>
+      <div class="normal skeleton" style="width: 10rem; height: 1rem"></div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Host Plants:
       <br />
-      <div class="normal skeleton" style="width: 10rem; height: 1rem;"></div>
+      <div class="normal skeleton" style="width: 10rem; height: 1rem"></div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Range:
       <br />
-      <div class="normal skeleton" style="width: 10rem; height: 1rem;"></div>
+      <div class="normal skeleton" style="width: 10rem; height: 1rem"></div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Harm to agriculture:
       <br />
-      <div class="normal skeleton" style="width: 10rem; height: 1rem;"></div>
+      <div class="normal skeleton" style="width: 10rem; height: 1rem"></div>
     </div>
     <div class="break-line"></div>
     <div class="headers">
       Effective control methods:
       <br />
-      <div class="normal skeleton" style="width: 10rem; height: 1rem;"></div>
+      <div class="normal skeleton" style="width: 10rem; height: 1rem"></div>
     </div>
     }
   </div>
