@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterOutlet } from '@angular/router';
 import { NotificationComponent } from './components/notification/notification.component';
-import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule, SocialUser } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +22,7 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              'YOUR_GOOGLE_CLIENT_ID'
+              '533175683517-mb7haqqtjg5v3r6l4cjmc0cch0481q34.apps.googleusercontent.com'
             )
           }
         ]
@@ -32,4 +32,21 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class AppComponent {}
+export class AppComponent {
+  user: SocialUser | null = null;
+  error: string | null = null;
+
+  constructor(private authService: SocialAuthService) {}
+
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      (user) => {
+        this.user = user;
+        console.log(user);
+      },
+      (error) => {
+        this.error = error;
+      }
+    );
+  }
+}
