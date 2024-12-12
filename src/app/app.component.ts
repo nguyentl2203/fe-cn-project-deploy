@@ -13,7 +13,7 @@ import { NotificationComponent } from './components/notification/notification.co
 export class AppComponent {
   loginWithGoogle() {
     const clientId = '533175683517-mb7haqqtjg5v3r6l4cjmc0cch0481q34.apps.googleusercontent.com';
-    const redirectUri = 'http://localhost:3000/google-auth/callback';
+    const redirectUri = 'http://localhost:10000/google-auth/callback';
     const scope = encodeURIComponent(
       'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
     );
